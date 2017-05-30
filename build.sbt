@@ -19,16 +19,16 @@ autoScalaLibrary := false
 description := "Example of grcp-java on sbt"
 
 // library dependencies. (orginization name) % (project name) % (version)
-libraryDependencies += "io.grpc" % "grpc-all" % "1.0.1"
+libraryDependencies += "io.grpc" % "grpc-all" % "1.3.0"
 
 // << Update these value according to your configuration >>
 // PATH FOR THE: protobuf compiler bin
-val PATH_PROTOC = "/usr/bin/protoc"
+val PATH_PROTOC = "bin/protoc"
 // PATH FOR THE: grpc-java protobuf Plugin
-val PATH_GRPC_JAVA_PLUGIN = "/usr/local/bin/protoc-gen-grpc-java"
+val PATH_GRPC_JAVA_PLUGIN = "bin/protoc-gen-grpc-java"
 
 // gRPC config
-version in PB.protobufConfig := "3.0.0"
+version in PB.protobufConfig := "3.3.0"
 protoc in PB.protobufConfig := PATH_PROTOC
 sourceDirectory in PB.protobufConfig := baseDirectory.value / "src" / "main" / "proto"
 // compileOrder := CompileOrder.JavaThenScala
