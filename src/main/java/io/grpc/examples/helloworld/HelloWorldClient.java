@@ -73,7 +73,7 @@ public class HelloWorldClient {
       logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
       return;
     }
-    logger.info("Greeting: " + response.getMessage());
+    logger.info("HelloReply("+response.toString().trim()+")");
   }
 
   /**

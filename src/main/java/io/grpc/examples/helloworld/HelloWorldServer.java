@@ -45,7 +45,7 @@ public class HelloWorldServer {
   private static final Logger logger = Logger.getLogger(HelloWorldServer.class.getName());
 
   /* The port on which the server should run */
-  private int port = 50051;
+  private static final int port = 50051;
   private Server server;
 
   private void start() throws IOException {
@@ -93,6 +93,7 @@ public class HelloWorldServer {
 
     @Override
     public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
+      logger.info("HelloRequest("+req.toString().trim()+")");
       HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + req.getName()).build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
