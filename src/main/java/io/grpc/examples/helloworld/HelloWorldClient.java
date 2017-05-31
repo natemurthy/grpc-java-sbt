@@ -49,7 +49,7 @@ public class HelloWorldClient {
   private final GreeterGrpc.GreeterBlockingStub blockingStub;
 
   /** Construct client connecting to HelloWorld server at {@code host:port}. */
-  public HelloWorldClient(String host, int port) {
+  private HelloWorldClient(String host, int port) {
     channel = ManagedChannelBuilder.forAddress(host, port)
         // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
         // needing certificates.
@@ -58,12 +58,12 @@ public class HelloWorldClient {
     blockingStub = GreeterGrpc.newBlockingStub(channel);
   }
 
-  public void shutdown() throws InterruptedException {
+  private void shutdown() throws InterruptedException {
     channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
   }
 
   /** Say hello to server. */
-  public void greet(String name) {
+  private void greet(String name) {
     logger.info("Will try to greet " + name + " ...");
     HelloRequest request = HelloRequest.newBuilder().setName(name).build();
     HelloReply response;
